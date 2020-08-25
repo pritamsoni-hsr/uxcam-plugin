@@ -67,7 +67,9 @@ public class UXCamPlugin extends Plugin {
     @PluginMethod()
     public void isRecording(PluginCall call) {
         boolean response =  UXCam.isRecording();
-        call.success({"result":response});
+        JSObject results = new JSObject();
+        results.put("result", response);
+        call.success(results);
     }
     @PluginMethod()
     public void pauseScreenRecording(PluginCall call) {
